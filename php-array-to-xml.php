@@ -70,8 +70,11 @@ function setAttributes(&$xml, $nodo, $data)
 		// echo 'Nodo: ' . $key . '<br>';
 		if (!is_array($value)) {
 			if (!is_null($value)) {
-				$value = filterValue($value);
-				$nodo->setAttribute($key, $value);
+				if ($key === "!nodeValue!") {
+					$nodo->nodeValue = $value;
+				} else {
+					$nodo->setAttribute($key, $value);
+				}
 			}
 		} else {
 			// Si nos topamos con un array verificamos que

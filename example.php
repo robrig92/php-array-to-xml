@@ -22,7 +22,8 @@ $myArray = [
 				]
 			],
 			'sibling2' => [
-				'attribute1' => 'valAttr1'
+				'attribute1' => 'valAttr1',
+				'!nodeValue!' => 'Innet text value'
 			]
 		],
 		'children2' => [
