@@ -5,7 +5,7 @@
       <twinNode attribute1="valAttr1"/>
       <twinNode attribute1="valAttr1"/>
     </sibling1>
-    <sibling2 attribute1="valAttr1">Texto dentro del nodo</sibling2>
+    <sibling2 attribute1="valAttr1">Innet text value</sibling2>
   </children1>
   <children2 tacos="pastor"/>
 </root>

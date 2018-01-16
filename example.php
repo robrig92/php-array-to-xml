@@ -33,7 +33,7 @@ $myArray = [
 ];
 
 $dir = './';
-$fileName = 'example.xml';
+$fileName = 'example';
 
 generaXML($myArray, $dir, $fileName);
 
