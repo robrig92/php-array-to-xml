@@ -59,23 +59,6 @@ function createNode(&$xml, $key)
 }
 
 /**
- * Limpiando la cadena de caracteres innecesarios
- * y extraños.
- *
- * @param String $value
- * @return String
- */
-function filterValue($value)
-{
-	$value = preg_replace('/\s\s+/', ' ', $value);
-	$value = trim($value);
-	$value = htmlspecialchars($value);
-	$value = str_replace("|", "/", $value);
-	$value = iconv(mb_detect_encoding($value, mb_detect_order(), true), "UTF-8", $value);
-	return $value;
-}
-
-/**
  * Itera un array nodo seteando los atributos en
  * caso de topar con otro array nodo lo crea.
  *
@@ -93,15 +76,14 @@ function setAttributes(&$xml, $nodo, $data)
 		} else {
 			// Si nos topamos con un array verificamos que
 			// no sea un índice númerico, esto significa
-			// que debe crearse otro nodo del CFDI.
+			// que debe crearse otro nodo.
 			if (!is_integer($key)) {
 				$newNode = createNode($xml, $key, $value);
 				$nodo->appendChild($newNode);
 				setAttributes($xml, $newNode, $value);
 			} else {
 				// Si llega a ser un índice numérico significa
-				// que son nodos hermanos como cfdi:concepto
-				// o cfdi:traslado para esto volvemos a
+				// que son nodos hermanos para esto volvemos a
 				// iterar en ese arreglo para crear el
 				// verdadero nodo.
 				setAttributes($xml, $nodo, $value);
